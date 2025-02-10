@@ -1,0 +1,20 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<h2>applicants</h2>
+
+<div class="job-applicant-container">
+    {% for job_applicant in job_applicants %}
+    <div class="job-applicant">
+        {{job_applicant}}
+    </div>
+
+
+    {% endfor %}
+
+</div>
+
+
+
+{% endblock %}

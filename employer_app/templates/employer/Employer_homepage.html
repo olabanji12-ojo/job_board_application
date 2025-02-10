@@ -1,0 +1,19 @@
+{% extends 'base/main.html' %}
+
+
+{% block content %}
+<h2>Employer Home Page</h2>
+<h3>Jobs available:</h3>
+
+<div class="alljobs">
+
+    {% for job in jobs %}
+
+     <div class="job-name-container">
+      <a href="{% url 'job_details_employer' job.id %}">{{job.job_name}}</a>
+
+    </div>  
+    {% endfor %}
+</div>
+
+{% endblock %}

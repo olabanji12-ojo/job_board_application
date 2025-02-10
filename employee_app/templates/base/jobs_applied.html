@@ -1,0 +1,17 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<h2>Jobs Applied For</h2>
+
+{% for job_applied in jobs_applied %}
+
+<div class="jobs-applied-for">
+
+    {{job_applied.job_name}}
+</div>
+
+
+{% endfor %}
+
+{% endblock %}

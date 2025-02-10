@@ -1,0 +1,41 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+
+<h2>Employee Login Page</h2>
+<div class="login-page">
+    <form method="POST"  action="" class="login-form-container">
+        {% csrf_token %}
+        <div>
+
+            <label class="email-label">Email</label>
+            <input type="text" name="email" placeholder="Enter Email...">
+
+        </div>
+
+        <div>
+
+            <label class="password-label">Password</label>
+            <input type="password" name="password" placeholder="Enter Password...">
+
+        </div>
+
+        <input type="submit" value="Login">
+
+        <p><a href="{% url 'reset_password' %}">Forgotten password?</a></p>
+
+        <p><a href="">Login as an Employer</a></p>
+
+        <p>Don't have an account? <a href="{% url 'register_page' %}">Register</a></p>
+
+
+        <p><a href="{% url 'Employer_loginpage' %}">Sign up as an Employer</a></p>
+
+    </form>
+
+</div>
+
+{% endblock %}
+
+

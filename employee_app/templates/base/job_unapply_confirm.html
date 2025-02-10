@@ -1,0 +1,15 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<form method="POST"  action="" class="unapply-job-form">
+    {% csrf_token %}
+
+    <p>Are you sure you want to unapply for this job?</p>
+    <input type="submit" value="Unapply">
+
+    <a href="{{request.META.HTTP_REFERER}}">Go Back</a>
+
+</form>
+
+{% endblock %}

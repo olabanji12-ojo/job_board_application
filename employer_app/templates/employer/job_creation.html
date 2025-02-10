@@ -1,0 +1,16 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<div class="job-creation-container">
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <input type="submit" value="Submit">
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<h2>Users</h2>
+{% for user in users %}
+
+<div class="users-lists">
+
+    <a href="{% url 'profile_id_page' user.id %}">{{user.name }} -- {{user.username}}</a>
+</div>
+
+{% endfor %}
+
+{% endblock %}

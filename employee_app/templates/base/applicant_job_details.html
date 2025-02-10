@@ -1,0 +1,34 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+<h2>job details</h2>
+
+<div class="job-details">
+
+    <div class="job-name">
+        {{job.job_name}}
+    </div>
+
+    <div class="job-description">
+        {{job.description}}
+    </div>
+
+    <div class="job-company-name">
+        <small>{{job.company_name}}</small>
+    </div>
+
+    {% if applied %}
+
+    <p style="color:green;" >You have already applied for this job</p>
+
+    <p><a href="{% url 'job_unapply_confirm' job.id %}">Unapply</a></p>
+    {% else %}
+
+    <p><a href="{% url 'job_details_confirm' job.id %}">Apply for job</a></p>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
+

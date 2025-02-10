@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Board</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+</head>
+<body>
+
+    <nav class="nav--bar">
+
+        {% if request.user.is_authenticated %}
+        <ul class="left-side-view">
+            <li><a href="{% url 'home_page' %}">Home</a></li>
+            {% if request.user.role == 'employee' %}
+                <li><a href="{% url 'profiles_page' %}">Users list</a></li>
+                <li><a href="{% url 'myaccount' user.id %}">My Account</a></li>
+
+            {% else %}
+            <li><a href="{% url 'job_creation' %}">Create new Jobs</a></li>
+
+            {% endif %}
+        </ul>
+
+        <ul class="right-side-view" >
+
+            {% if request.user.role == 'employee' %}
+                <li><a href="{% url 'jobs_applied' user.id %}">Jobs applied for</a></li>
+             
+            {% else %}
+            <li><a href="{% url 'jobs_created' user.id %}">jobs created</a></li>
+
+            {% endif %}
+
+            <li><a href="{% url 'logout_page' %}">Logout</a></li>
+        </ul>
+
+        {% else %}
+        <ul>
+            <li><a href="{% url 'welcome_page' %}">Home</a></li>
+        </ul>
+
+        <ul>
+            <li><a href="{% url 'login_page' %}">Login</a></li>
+        </ul>
+
+        {% endif %}
+
+    </nav>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="foot--bar">
+        <ul class="foot-list">
+
+            <li><a href="">About Us</li></a>
+            <li><a href="">Address</li></a>
+            
+        </ul>
+    </footer>
+    
+</body>
+</html>

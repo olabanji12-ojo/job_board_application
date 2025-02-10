@@ -1,0 +1,13 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<form method="POST" action="" class="job-details-confirm">
+    {% csrf_token %}
+    
+    <p>Are you sure you want to apply for this job '{{job.job_name}}'</p>
+    <input type="submit" value="Apply">
+    <a href="{{request.META.HTTP_REFERER}}">Go Back</a>
+</form>
+
+{% endblock %}

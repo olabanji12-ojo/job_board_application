@@ -1,0 +1,21 @@
+{% extends 'base/main.html' %}
+
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="home-container">
+
+    <h2>Searching for Jobs <br> Or Looking for <br> someone to hire?</h2>
+    <img src="{% static 'images/jobapplication.jpg' %}" alt="Job Search">
+    <p><a href="{% url 'login_page' %}">Click here to sign up</a></p>
+
+
+
+
+</div>
+
+
+{% endblock %}

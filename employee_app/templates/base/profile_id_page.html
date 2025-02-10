@@ -1,0 +1,38 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<div class="profile-name-container">
+
+    <div class="profile-name">
+
+    {{profile.user.name}}
+
+    </div>
+
+    <div class="profile-skills">
+        {{profile.skills}}
+    </div>
+
+    <div class="profile-CV">
+        {{profile.CV}}
+    </div>
+
+    <div class="profile-profile-picture">
+        <img src="{{profile.profile_picture.url}}" alt="">
+    </div>
+
+    
+
+</div>
+
+{% if request.user == profile.user %}
+
+<a href="{% url 'profile_edit_page' user.id  %}">Edit info</a>
+
+{% endif %}
+
+
+
+
+{% endblock %}

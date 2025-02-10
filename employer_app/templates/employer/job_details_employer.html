@@ -1,0 +1,32 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<h2>Job details</h2>
+<div class="job-details">
+    <div class="job-name">
+        {{job.job_name}}
+    </div>
+
+    <div class="job-description">
+        {{job.description}}
+    </div>
+
+    <div class="company-name">
+        <small>{{job.company_name}}</small>
+    </div>
+</div>
+
+{% if request.user == job.jobs_created %}
+
+<div class="edit-details">
+    <a href="{% url 'job_details_edit' job.id %}">Edit details</a>
+</div>
+
+<div class="view-applicants">
+    <a href="">View applicant</a>
+</div>
+
+{% endif %}
+
+{% endblock %}
