@@ -5,7 +5,7 @@ class User(AbstractUser):
     name = models.CharField(max_length=200)
     email = models.EmailField(unique=True)
     bio = models.TextField()
-    # applicants = models.ForeignKey('Job', on_delete=models.CASCADE, null=True, blank=True, related_name='job_applicant')
+    applicants = models.ForeignKey('Job', on_delete=models.CASCADE, null=True, blank=True, related_name='employee_applicant')
     
     ROLE_CHOICES = {
         ('employee', 'Employee'),

@@ -106,7 +106,7 @@ def job_details_confirm(request, id):
     job = Job.objects.get(id=id)
     if request.method == 'POST':
         job.employee_applied.add(request.user)
-        request.user.applicants.add(job)
+        request.user.applicants = job
         request.user.save()
         job.save()
         return redirect('home_page')

@@ -85,13 +85,20 @@ def jobs_created(request, id):
     context = {'job_created':job_created, 'user':user}
     return render(request, 'employer/jobs_created.html', context)
 
+def view_applicants(request, id):
+    # user = request.id
+    job = Job.objects.get(id=id)  
+    job_applicants = job.employee_applicant.all()  
 
-# def view_applicants(request, id):
-#     user = request.user
-#     job = Job.objects.get(id=id)
-#     job_applicants = Job_applicant.objects.filter(user=user, job=job)
+    context = {'job': job, 'job_applicants': job_applicants}
+    return render(request, 'employer/view_applicants.html', context)
+
+def applicants_profile(request, id):
+    user = User.objects.get(id=id)
     
-#     context = {'job':job, 'user':user, 'job_applicants':job_applicants}
-#     return render(request, 'employer/view_applicants.html', context)
+    
+    context = {'user':user}
+    return render(request, 'employer/applicants_profile.html', context)
+
 
 # Create your views here.
